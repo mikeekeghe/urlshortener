@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://mikeekeghe.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://mikeekeghe.com" xmlns:intf="http://mikeekeghe.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://mikeekeghe.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getNewUrl">
+    <complexType>
+     <sequence>
+      <element name="oldUrl" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNewUrlResponse">
+    <complexType>
+     <sequence>
+      <element name="getNewUrlReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="forwardShortUrl">
+    <complexType>
+     <sequence>
+      <element name="shortUrl" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="forwardShortUrlResponse">
+    <complexType>
+     <sequence>
+      <element name="forwardShortUrlReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getNewUrlRequest">
+
+      <wsdl:part element="impl:getNewUrl" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNewUrlResponse">
+
+      <wsdl:part element="impl:getNewUrlResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="forwardShortUrlRequest">
+
+      <wsdl:part element="impl:forwardShortUrl" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="forwardShortUrlResponse">
+
+      <wsdl:part element="impl:forwardShortUrlResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TinyUrl">
+
+      <wsdl:operation name="getNewUrl">
+
+         <wsdl:input message="impl:getNewUrlRequest" name="getNewUrlRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNewUrlResponse" name="getNewUrlResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="forwardShortUrl">
+
+         <wsdl:input message="impl:forwardShortUrlRequest" name="forwardShortUrlRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:forwardShortUrlResponse" name="forwardShortUrlResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TinyUrlSoapBinding" type="impl:TinyUrl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getNewUrl">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNewUrlRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNewUrlResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="forwardShortUrl">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="forwardShortUrlRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="forwardShortUrlResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TinyUrlService">
+
+      <wsdl:port binding="impl:TinyUrlSoapBinding" name="TinyUrl">
+
+         <wsdlsoap:address location="http://localhost:8080/VanhackService/services/TinyUrl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
